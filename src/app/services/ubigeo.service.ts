@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AppSettings } from '../app.settings';
 import { Ubigeo } from '../models/ubigeo.model';
 
-const baseUrl = 'http://localhost:8090/rest/util';
+const baseUrl =  AppSettings.API_ENDPOINT + "/util";
 
 @Injectable({
   providedIn: 'root'

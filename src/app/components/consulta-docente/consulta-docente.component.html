@@ -1,13 +1,13 @@
 <div>
 
-    <form class="content"  >
+    <form class="content"  (submit)="consultaDocente()">
 
 
     <div class="submit-form" >
   
          <div class="row">
             <div class="col-lg-12">
-                <h6>Consulta de docente usando JSON</h6>
+                <h6>Consulta de docente</h6>
             </div>
         </div>
   
@@ -71,11 +71,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                            
-
+                          <tr *ngFor="let aux of docentes">
+                             <td>{{ aux.idDocente }}</td>   
+                             <td>{{ aux.nombre }}</td> 
+                             <td>{{ aux.dni }}</td>    
+                             <td>{{ aux.ubigeo!.departamento }} - {{ aux.ubigeo!.provincia }} - {{ aux.ubigeo!.distrito }}</td>    
+                          </tr>     
                     </tbody>
-                       
-
                 </table>
 
 
