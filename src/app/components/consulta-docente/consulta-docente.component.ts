@@ -3,6 +3,7 @@ import { Docente } from 'src/app/models/docente.model';
 import { Ubigeo } from 'src/app/models/ubigeo.model';
 import { DocenteService } from 'src/app/services/docente.service';
 import { UbigeoService } from 'src/app/services/ubigeo.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-consulta-docente',
@@ -50,9 +51,12 @@ export class ConsultaDocenteComponent implements OnInit {
   }
 
   consultaDocente(){
-      this.docenteService.listaDocente(this.nombre, this.dni, this.selDistrito).subscribe(
-        x => this.docentes = x
-      );
+    this.docenteService.listaDocente(this.nombre, this.dni, this.selDistrito).subscribe(
+          x => {
+                Swal.fire('Mensaje', x.mensaje,'info');
+                this.docentes = x.lista
+          }
+    );
   }
 
   ngOnInit(): void {}

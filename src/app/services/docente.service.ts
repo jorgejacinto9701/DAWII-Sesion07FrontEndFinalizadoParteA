@@ -14,7 +14,7 @@ export class DocenteService {
 
   listaDocente(nombre:string, dni:string, idUbigeo: number): Observable<any>{
     const params = new HttpParams().set("nombre", nombre).set("dni", dni).set("idUbigeo", idUbigeo);  
-    return this.http.get(baseUrl + "/porFiltro", {params});
+    return this.http.get(baseUrl + "/listaDocenteConParametros", {params});
   }
   
 }
